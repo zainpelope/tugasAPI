@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:tugas_api/model/respon_orang.dart';
 
-import 'detail.dart';
+import 'halaman_detail.dart';
 
 class MyItem extends StatelessWidget {
   const MyItem({Key? key, required this.orang}) : super(key: key);
- final Orang orang;
+  final Orang orang;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Detail()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => HalamanDetail(orang: orang)));
       },
       child: Container(
         margin: const EdgeInsets.only(left: 22, right: 22, top: 22),
@@ -19,45 +19,47 @@ class MyItem extends StatelessWidget {
         height: 100,
         child: Row(
           children: [
-             Padding(
+            Padding(
               padding: const EdgeInsets.only(top: 20, bottom: 20),
               child: CircleAvatar(
-                backgroundImage: NetworkImage(orang.photo??""),
+                backgroundImage: NetworkImage(orang.photo ?? ""),
                 radius: 50,
               ),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children:  [
-                Padding(padding: EdgeInsets.only(top: 26)),
+              children: [
+                const Padding(padding: EdgeInsets.only(top: 26)),
                 Text(
-                  orang.nama??"",
-                  style: TextStyle(
+                  orang.nama ?? "",
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 3,
                 ),
                 Text(
                   orang.usia.toString(),
-                  style: TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
+                  style: const TextStyle(
+                      fontSize: 12, fontStyle: FontStyle.italic),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 3,
                 ),
                 Text(
-                  orang.tanggalLahir??"",
-                  style: TextStyle(
+                  orang.tanggalLahir ?? "",
+                  style: const TextStyle(
                     fontSize: 11,
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
     );
   }
 }
+

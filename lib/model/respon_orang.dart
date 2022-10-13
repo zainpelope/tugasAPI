@@ -11,16 +11,13 @@ class ResponOrang {
       });
     }
   }
-
   List<Orang>? orang;
-
   ResponOrang copyWith({
     List<Orang>? orang,
   }) =>
       ResponOrang(
         orang: orang ?? this.orang,
       );
-
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     if (orang != null) {
@@ -44,12 +41,10 @@ class Orang {
     tanggalLahir = json['tanggalLahir'];
     usia = json['usia'];
   }
-
   String? nama;
   String? photo;
   String? tanggalLahir;
   int? usia;
-
   Orang copyWith({
     String? nama,
     String? photo,
@@ -62,7 +57,6 @@ class Orang {
         tanggalLahir: tanggalLahir ?? this.tanggalLahir,
         usia: usia ?? this.usia,
       );
-
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['nama'] = nama;
